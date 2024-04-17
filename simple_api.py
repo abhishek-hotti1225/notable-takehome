@@ -72,23 +72,18 @@ def get_doctor_schedule(id: int):
     if not validity_of_doctor:
         return jsonify({"error": "Invalid Doctor Id"}), 404
     date_to_check = request.args.get("date", None)
-    date_in_datetime = None
     if date_to_check:
         try:
-            date_in_datetime = format_date(date_to_check)
+            format_date(date_to_check)
         except:
             return jsonify(
-                {"error": "Please enter date in query params as format: YYYY/MM/DD"}
+                {"error": "Please enter `date` in query params as format: YYYY/MM/DD"}
             )
-
-    if date_in_datetime and date_to_check not in appointments:
-        return (
-            jsonify(
-                f"Doctor {doctors[id].get('firstName')} does not have any appointments for {date_in_datetime.strftime('%b %d %Y')}"
-            ),
-            200,
+    else:
+        return jsonify(
+            {"error": "Please enter `date` in query params as format: YYYY/MM/DD"}
         )
-    all_appointments_for_day = appointments.get(date_to_check)
+    all_appointments_for_day = appointments.get(date_to_check, [])
     doc_appointments = []
     for appoint in all_appointments_for_day:
         if appoint.get("doctor") == id:
@@ -98,7 +93,9 @@ def get_doctor_schedule(id: int):
     else:
         return (
             jsonify(
-                f"Doctor {doctors[id].get('firstName')} does not have any appointments for {date_in_datetime.strftime('%b %d %Y')}"
+                {
+                    "info": f"Doctor {doctors[id].get('firstName')} does not have any appointments for {date_to_check}"
+                }
             ),
             200,
         )
