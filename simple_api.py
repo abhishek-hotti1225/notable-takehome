@@ -118,7 +118,7 @@ def add_appointment(id):
         )
     if appointment_data.get("type").lower() not in typesOfAppointments:
         return jsonify(
-            "Type of appointments supported at New Patient or Follow Up only. Please pass a valid 'type' in request "
+            "Type of appointments supported at 'New Patient' or 'Follow Up' only. Please pass a valid 'type' in request "
             "body"
         )
     validity_of_doctor = does_doctor_exist(id)
