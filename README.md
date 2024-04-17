@@ -50,3 +50,11 @@ So the few endpoints I have created are as follows:
     13) Deletes the specified appointment for the doctor
         14) Returns error if invalid appointment id is passed in
     15) Ex: ``` curl -X  DELETE 'http://127.0.0.1:5005/delete_appointment/1?appt=<appnt-id>'```
+
+Improvements I would work on:
+
+1) Create and store doctor information in DB table
+2) Create and store appointment information in DB table
+    3) Have a foreign key linked from doctor to appointment table
+3) It would be easier to keep track of appointments, instead of having to iterate through the entire appointment table,
+   we can just easily filter out the requested dates and do any sort of transformation on these entries easily 
