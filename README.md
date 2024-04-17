@@ -32,14 +32,15 @@ So the few endpoints I have created are as follows:
         5) If trying to get a schedule for a doctor who does not exist, then get an error
     5) Ex: `curl -X GET 'http://127.0.0.1:5005/get-doctor-schedule/1?date=2024/04/17'`
 6) add_appointment/\<id\>
-    7) Adds an appointment to the doctors schedule at the specified time
+    7) Adds an appointment to the doctors schedule at the specified time and date
         8) if time is valid ( 15 min interval )
         9) Doctor has availability to take on this appointment (has less than 3 for that time slot)
-    7) Ex: ``` curl -X POST 'http://127.0.0.1:5005/add_appointment/1'
+    7) Ex: ```
+       curl -X POST 'http://127.0.0.1:5005/add_appointment/1'
        --header 'Content-Type: application/json'
        --data '{
        "patient_lname": "Sam",
-       "patient_fname": "1",
+       "patient_fname": "Hubble",
        "time": "9:45",
        "type": "Follow Up",
        "date": "2024/04/17"
