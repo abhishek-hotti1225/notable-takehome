@@ -13,7 +13,7 @@ typesOfAppointments = ["new patient", "follow up"]
 appointments = {
     "2024/04/17": [
         {
-            "appnt_id": uuid.uuid4(),
+            "appnt_id": str(uuid.uuid4()),
             "patient_lname": "blob",
             "patient_fname": "char",
             "time": "8:00",
@@ -23,7 +23,7 @@ appointments = {
     ],
     "2024/04/19": [
         {
-            "appnt_id": uuid.uuid4(),
+            "appnt_id": str(uuid.uuid4()),
             "patient_lname": "blob",
             "patient_fname": "char",
             "time": "8:00",
@@ -31,7 +31,7 @@ appointments = {
             "kind": typesOfAppointments[1],
         },
         {
-            "appnt_id": uuid.uuid4(),
+            "appnt_id": str(uuid.uuid4()),
             "patient_lname": "blob",
             "patient_fname": "char",
             "time": "8:00",
@@ -44,8 +44,6 @@ appointments = {
 
 # TODO: 1) Get list of all doctors - done
 # TODO: 2) Get list of all appointments for a doctor on a day
-#           a) All appointments for a doctor
-#           a) All appointments for a day
 # TODO: 3) Delete an existing appointment for a doctor
 # TODO: 4) Add a new appointment to doctor's schedule
 #           a) 15 min intervals only ( time.min % 15 == 0)
