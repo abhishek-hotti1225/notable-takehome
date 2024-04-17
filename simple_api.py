@@ -176,7 +176,7 @@ def add_appointment(id):
         return jsonify(appnt)
     else:
         return jsonify(
-            f"Sorry, {doctors[id].get('firstName')} time slot at time {date_of_appoint} {time_of_appoint} is full"
+            f"Sorry, Doctor {doctors[id].get('firstName')} time slot at {date_of_appoint} {time_of_appoint} is full"
         )
 
 
